@@ -1,0 +1,21 @@
+/*
+ * Step 3 overlay for stm32n6570_dk.
+ *
+ * Device side: zephyr_udc0 (usbotg_hs1) is enabled for the PC-facing port.
+ * Host side:   OTG_HS2 is NOT in the DTS — we drive it directly via HAL,
+ *              bypassing Zephyr's USB subsystem entirely.
+ */
+
+&zephyr_udc0 {
+	status = "okay";
+};
+
+/ {
+	hid_dev_0: hid_dev_0 {
+		compatible = "zephyr,hid-device";
+		label = "HID0";
+		protocol-code = "keyboard";
+		in-report-size = <64>;
+		in-polling-period-us = <1000>;
+	};
+};
