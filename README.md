@@ -21,7 +21,7 @@ git clone https://github.com/STMicroelectronics/stm32-mw-usb-host
 ## Build and Flash
 
 ```bash
-west build -b stm32n6570_dk -p always -- -DFILE_SUFFIX=sb
+west build -b stm32n6570_dk zephyr-kbd-bridge -p always
 west flash
 ```
 
